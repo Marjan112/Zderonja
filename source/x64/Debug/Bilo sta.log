@@ -1,0 +1,6 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Bilo sta.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\Users\Maki\source\repos\Bilo sta\Bilo sta\main.cpp(144,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maki\source\repos\Bilo sta\Bilo sta\main.cpp(145,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Maki\source\repos\Bilo sta\Bilo sta\main.cpp(146,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Bilo sta.vcxproj -> C:\Users\Maki\source\repos\Bilo sta\x64\Debug\Zderonja.exe
