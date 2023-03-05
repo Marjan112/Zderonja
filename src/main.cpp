@@ -1,4 +1,10 @@
-﻿#include <sstream>
+﻿#define DEBUG 0
+
+#if DEBUG
+#include <cstdio>
+#endif
+
+#include <sstream>
 #include <random>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -12,8 +18,14 @@
 
 sf::Clock dtClock;
 sf::Vector2f velocity;
-float deltaTime, pW = 76.0f, pH = 162.0f, cW = 50.0f, cH = 50.0f, mov_speed = 350.f;
+float deltaTime, pW = 76.0f, pH = 162.0f, cW = 50.0f, cH = 50.0f, mov_speed = 700.f;
 int score = 0;
+
+#if DEBUG
+int log(std::string str) {
+	return printf(str.c_str());
+}
+#endif
 
 template<typename T>
 std::string toString(T n) {
@@ -104,13 +116,25 @@ int main() {
 			nextPos.top += velocity.y;
 			if (crvBounds.intersects(nextPos)) {
 				score++;
-				pH++;
-				mov_speed += 10;
-				text.setString("Poeni: " + toString(score));
-				bip.play();
-				crv.setPosition(cX(rd), cY(rd));
-				crv.setRotation(1.0f);
-				player.setSize(sf::Vector2f(pW, pH));
+				pW += 1.f;
+				pH += 5.f;
+				if (mov_speed <= 400.f) {
+					text.setString("Poeni: " + toString(score));
+					bip.play();
+					crv.setPosition(cX(rd), cY(rd));
+					crv.setRotation(1.0f);
+					player.setSize(sf::Vector2f(pW, pH));
+				} else {
+					mov_speed -= 10.f;
+					text.setString("Poeni: " + toString(score));
+					bip.play();
+					crv.setPosition(cX(rd), cY(rd));
+					crv.setRotation(1.0f);
+					player.setSize(sf::Vector2f(pW, pH));
+				}
+				#if DEBUG
+				log("mov_speed = " + toString(mov_speed) + '\n');
+				#endif
 			}
 		}
 
