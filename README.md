@@ -1,1 +1,1 @@
-# Predstavljam moju igricu <b>Zderonja</b>
+# Predstavljam moju igricu "Zderonja"
